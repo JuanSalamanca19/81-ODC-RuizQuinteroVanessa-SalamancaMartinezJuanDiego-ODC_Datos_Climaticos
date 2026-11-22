@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ODC-DATOS-CLIMATICOS" version="1.0"
+    xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+    xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="RUTA-ODC">
+    <organization identifier="RUTA-ODC" structure="hierarchical">
+      <title>Contribución del análisis de datos climáticos a la toma de decisiones agrícolas</title>
+      <item identifier="CURSO-ODC" identifierref="RECURSO-ODC" isvisible="true">
+        <title>Contribución del análisis de datos climáticos a la toma de decisiones agrícolas</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RECURSO-ODC" adlcp:scormtype="sco" type="webcontent" href="index.html">
+      <file href="index.html"/>
+      <file href="assets/audio/narracion-01.wav"/>
+      <file href="assets/audio/narracion-02.wav"/>
+      <file href="assets/audio/narracion-03.wav"/>
+      <file href="assets/audio/narracion-04.wav"/>
+      <file href="assets/audio/narracion-05.wav"/>
+      <file href="assets/audio/narracion-06.wav"/>
+      <file href="assets/audio/narracion-07.wav"/>
+      <file href="assets/audio/narracion-08.wav"/>
+      <file href="assets/audio/narracion-09.wav"/>
+      <file href="assets/audio/narracion-10.wav"/>
+      <file href="assets/audio/narracion-11.wav"/>
+      <file href="assets/audio/narracion-12.wav"/>
+      <file href="assets/audio/narracion-13.wav"/>
+      <file href="assets/audio/narracion-14.wav"/>
+      <file href="assets/audio/narracion-15.wav"/>
+      <file href="assets/audio/narracion-16.wav"/>
+      <file href="assets/audio/voz.txt"/>
+      <file href="assets/images/agrodata-aprueba.webp"/>
+      <file href="assets/images/agrodata-guia.webp"/>
+      <file href="assets/images/agrodata-piensa.webp"/>
+      <file href="assets/images/agrodata-saluda.webp"/>
+      <file href="assets/images/agrodata-senala.webp"/>
+      <file href="assets/images/cultivos.webp"/>
+      <file href="assets/images/decision-cosecha.webp"/>
+      <file href="assets/images/decision-manejo.webp"/>
+      <file href="assets/images/decision-riego.webp"/>
+      <file href="assets/images/decision-riesgo.webp"/>
+      <file href="assets/images/decision-siembra.webp"/>
+      <file href="assets/images/estacion.webp"/>
+      <file href="assets/images/fondo-menu.webp"/>
+      <file href="assets/images/fondo-variables.webp"/>
+      <file href="assets/images/licencia.webp"/>
+      <file href="assets/images/mapa-cultivo.webp"/>
+      <file href="assets/images/opcion-costos.webp"/>
+      <file href="assets/images/opcion-estacion.webp"/>
+      <file href="assets/images/opcion-fertilizacion.webp"/>
+      <file href="assets/images/opcion-riego.webp"/>
+      <file href="assets/images/opcion-sequia.webp"/>
+      <file href="assets/images/opcion-siembra.webp"/>
+      <file href="assets/images/productor.webp"/>
+      <file href="assets/images/surcos.webp"/>
+      <file href="assets/images/valle.webp"/>
+      <file href="assets/images/variabilidad.webp"/>
+      <file href="css/accessibility.css"/>
+      <file href="css/movimiento.css"/>
+      <file href="css/styles.css"/>
+      <file href="js/actividades.js"/>
+      <file href="js/almacenamiento.js"/>
+      <file href="js/app.js"/>
+      <file href="js/audio.js"/>
+      <file href="js/datos.js"/>
+      <file href="js/pantallas.js"/>
+      <file href="js/referencias.js"/>
+      <file href="js/scorm-api.js"/>
+    </resource>
+  </resources>
+</manifest>

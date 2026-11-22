@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Objeto digital de conocimiento de la Universidad de Cundinamarca sobre datos climáticos y decisiones agrícolas.">
+  <title>Datos climáticos y decisiones agrícolas</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/movimiento.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+  <script defer src="js/datos.js"></script>
+  <script defer src="js/referencias.js"></script>
+  <script defer src="js/scorm-api.js"></script>
+  <script defer src="js/almacenamiento.js"></script>
+  <script defer src="js/audio.js"></script>
+  <script defer src="js/actividades.js"></script>
+  <script defer src="js/pantallas.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <div id="curso" class="curso">
+    <header class="cabecera">
+      <div class="ubicacion"><span id="numero-pantalla"></span> <strong id="ubicacion">Portada</strong></div>
+      <nav class="flechas" aria-label="Cambiar de pantalla">
+        <button id="anterior" type="button" data-accion="anterior" aria-label="Anterior" title="Anterior"><span data-icono="retroceder"></span></button>
+        <button id="siguiente" type="button" data-accion="siguiente" aria-label="Siguiente" title="Siguiente"><span data-icono="avanzar"></span></button>
+      </nav>
+    </header>
+    <aside class="lateral" aria-label="Herramientas del curso">
+      <nav class="lateral-nav" aria-label="Navegación principal">
+        <button type="button" data-ir="1" aria-label="Inicio" title="Inicio"><span data-icono="casa"></span></button>
+        <button type="button" data-ir="3" aria-label="Menú principal" title="Menú principal"><span data-icono="menu"></span></button>
+        <button type="button" data-accion="audio" aria-label="Audio" title="Audio" aria-controls="panel-audio" aria-expanded="false"><span data-icono="audio"></span></button>
+        <button type="button" data-ventana="ayuda" aria-label="Ayuda" title="Ayuda"><span data-icono="informacion"></span></button>
+      </nav>
+    </aside>
+    <div class="espacio">
+      <div class="escenario">
+        <button id="audio-escena" class="audio-escena" type="button" data-accion="alternar-narracion" aria-label="Reproducir narración" title="Reproducir narración"><span data-icono="silencio"></span><span id="audio-activacion" hidden>Activar narración</span></button>
+        <main id="contenido" class="contenido" tabindex="-1"></main>
+      </div>
+      <section id="panel-audio" class="panel-audio" aria-label="Narración de AgroData" hidden>
+        <div class="audio-cabecera">
+          <div class="audio-titulo"><strong>Narración de AgroData</strong><span id="audio-nombre"></span></div>
+          <button type="button" class="boton secundario" data-accion="cerrar-audio"><span data-icono="cerrar" aria-hidden="true"></span>Cerrar reproductor</button>
+        </div>
+        <audio id="audio" preload="metadata" controls aria-label="Reproductor de narración"></audio>
+        <button type="button" class="boton secundario" data-accion="reiniciar-audio">Reiniciar audio</button>
+        <button type="button" class="boton secundario" data-ventana="transcripcion">Transcripción</button>
+        <p id="audio-error" class="error" hidden>El archivo de audio no se pudo reproducir. Puedes leer la transcripción.</p>
+      </section>
+      <div class="progreso-curso">
+        <span id="contador" class="solo-lectura"></span>
+        <label for="progreso" class="solo-lectura">Pantallas visitadas</label>
+        <progress id="progreso" max="16" value="0"></progress>
+      </div>
+    </div>
+  </div>
+  <div id="anuncio" class="solo-lectura" role="status" aria-live="polite" aria-atomic="true"></div>
+  <dialog id="ventana" role="dialog" aria-modal="true" aria-labelledby="ventana-titulo">
+    <div class="ventana-cabecera">
+      <div id="ventana-ilustracion" class="ventana-ilustracion" aria-hidden="true" hidden></div>
+      <h2 id="ventana-titulo" tabindex="-1"></h2>
+      <button type="button" class="boton cerrar" data-accion="cerrar" aria-label="Cerrar ventana"><span data-icono="cerrar"></span></button>
+    </div>
+    <div id="anuncio-ventana" class="solo-lectura" role="status" aria-live="polite"></div>
+    <div id="ventana-contenido" class="ventana-contenido"></div>
+  </dialog>
+  <noscript>Activa JavaScript para explorar el ODC, realizar las actividades y guardar el progreso.</noscript>
+</body>
+</html>
+
