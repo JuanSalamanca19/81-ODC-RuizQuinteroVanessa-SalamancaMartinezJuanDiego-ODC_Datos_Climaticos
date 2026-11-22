@@ -1,0 +1,120 @@
+/* La respuesta conserva su señal visual incluso con movimiento reducido. */
+dialog:is([data-resultado="acierto"],[data-resultado="repaso"]) .ventana-cabecera {
+  justify-content: flex-start;
+}
+dialog:is([data-resultado="acierto"],[data-resultado="repaso"]) .ventana-cabecera h2 { flex: 1 }
+dialog[data-resultado="repaso"] .ventana-ilustracion { background: #f8e9d7; color: #7c451f }
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    --entrada: cubic-bezier(.22,.68,.28,1);
+    --demora-corta: 45ms;
+  }
+
+  /* Entra el contenido sin desplazar los controles de navegación. */
+  .contenido :is(.titulo,.portada-ficha,.rea > .tarjeta,.caso-texto,.interpretacion-caso) {
+    animation: entrada-lectura .42s var(--entrada) backwards;
+  }
+  .contenido :is(.ruta-item,.criterios > .tarjeta,.conceptos > .tarjeta,.variables > .tarjeta,
+    .modelos > .tarjeta,.etapas > .tarjeta,.decisiones > .tarjeta) {
+    animation: entrada-tarjeta .42s var(--entrada) backwards;
+    animation-delay: calc(var(--orden-entrada,0) * var(--demora-corta));
+  }
+  .contenido :nth-child(2) { --orden-entrada: 1 }
+  .contenido :nth-child(3) { --orden-entrada: 2 }
+  .contenido :nth-child(4) { --orden-entrada: 3 }
+  .contenido :nth-child(5) { --orden-entrada: 4 }
+  .contenido :nth-child(6) { --orden-entrada: 5 }
+
+  .guia-agrodata .avatar,.medicion .avatar {
+    transform-origin: 50% 85%;
+    animation: saludo-agrodata .85s var(--entrada) backwards;
+  }
+  .guia-agrodata .bocadillo { animation: entrada-lectura .38s var(--entrada) .16s backwards }
+  .decision-cuerpo .guia-agrodata { row-gap: .65rem }
+  .audio-escena[data-reproduciendo] svg { animation: indicar-narracion .66s var(--entrada) }
+
+  .grafica rect.serie,.grafica circle.serie {
+    transform-box: fill-box;
+    animation-delay: calc(var(--indice,0) * 34ms + 100ms);
+    animation-timing-function: var(--entrada);
+    animation-fill-mode: backwards;
+  }
+  .grafica rect.serie {
+    transform-origin: center bottom;
+    animation-name: crecer-barra;
+    animation-duration: .46s;
+  }
+  .grafica .linea {
+    stroke-dasharray: 1 1;
+    animation: dibujar-linea .72s ease-out backwards;
+  }
+  .grafica circle.serie {
+    transform-origin: center;
+    animation-name: aparecer-punto;
+    animation-duration: .28s;
+    animation-delay: calc(var(--indice,0) * 68ms + 145ms);
+  }
+
+  dialog[open] { animation: abrir-dialogo .22s var(--entrada) }
+  dialog[open]::backdrop { animation: mostrar-fondo .18s ease-out }
+  dialog[open] .ventana-ilustracion { animation: aparecer-punto .32s var(--entrada) .08s backwards }
+  dialog[data-resultado="acierto"][open] .ventana-ilustracion path {
+    stroke-dasharray: 1 1;
+    animation: dibujar-linea .35s ease-out .18s backwards;
+  }
+
+  .ruta-item,.tarjeta-definicion,.marco-etapa,.opcion,.destino {
+    transition: background-color .16s ease, border-color .16s ease, box-shadow .16s ease;
+  }
+  .ruta-item svg,.tarjeta-definicion svg,.tarjeta-definicion .icono-tarjeta {
+    transition: transform .18s var(--entrada);
+  }
+  .destino.arrastre { box-shadow: inset 0 0 0 2px #54855c }
+  .opcion:has(input:checked:not(:disabled)) input { animation: marcar-opcion .28s var(--entrada) }
+
+  @media (hover: hover) and (pointer: fine) {
+    .ruta-item:hover svg { transform: translateX(.18rem) }
+    .tarjeta-definicion:hover svg,.tarjeta-definicion:hover .icono-tarjeta { transform: translateY(-.16rem) }
+  }
+
+  @keyframes entrada-lectura {
+    from { opacity: .35; transform: translateY(.5rem) }
+    to { opacity: 1; transform: none }
+  }
+  @keyframes entrada-tarjeta {
+    from { opacity: .38 }
+    to { opacity: 1 }
+  }
+  @keyframes saludo-agrodata {
+    0% { opacity: .55; transform: translateY(.64rem) rotate(-3deg) scale(.96) }
+    55% { opacity: 1; transform: translateY(-.27rem) rotate(2deg) scale(1.01) }
+    100% { opacity: 1; transform: none }
+  }
+  @keyframes indicar-narracion {
+    45% { transform: scale(1.18) }
+  }
+  @keyframes crecer-barra {
+    from { transform: scaleY(.12) }
+    to { transform: scaleY(1) }
+  }
+  @keyframes dibujar-linea {
+    from { stroke-dashoffset: 1 }
+    to { stroke-dashoffset: 0 }
+  }
+  @keyframes aparecer-punto {
+    from { opacity: 0; transform: scale(.72) }
+    to { opacity: 1; transform: scale(1) }
+  }
+  @keyframes abrir-dialogo {
+    from { opacity: .45; transform: translateY(.4rem) scale(.985) }
+    to { opacity: 1; transform: none }
+  }
+  @keyframes mostrar-fondo {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+  @keyframes marcar-opcion {
+    45% { transform: scale(1.14) }
+  }
+}
